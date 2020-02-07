@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/berlinen/myblog/issues"
   },
-  "homepage": "https://github.com/berlinen/myblog#readme"
+  "homepage": "https://github.com/berlinen/myblog#readme",
+  "dependencies": {
+    "typescript": "^3.7.5"
+  }
 }
