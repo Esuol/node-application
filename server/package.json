@@ -1,0 +1,33 @@
+{
+  "name": "myblog-server",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berlinen/myblog.git/server"
+  },
+  "keywords": [
+    "node",
+    "react"
+  ],
+  "author": "berlin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berlinen/myblog/server/issues"
+  },
+  "homepage": "https://github.com/berlinen/myblog/server#readme",
+  "dependencies": {
+    "koa": "^2.11.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
+  }
+}
