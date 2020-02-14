@@ -5,6 +5,7 @@
     "esModuleInterop": false,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "allowJs": true,
     "target": "es6",
     "noImplicitAny": false,
     "sourceMap": true,

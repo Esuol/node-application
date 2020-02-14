@@ -4,6 +4,7 @@
   "description": "server",
   "main": "index.js",
   "scripts": {
+    "start": "export NODE_ENV=development; nodemon --config nodemon.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,13 +22,26 @@
   },
   "homepage": "https://github.com/berlinen/myblog/server#readme",
   "dependencies": {
+    "@types/koa": "^2.11.1",
+    "@types/koa-bodyparser": "^4.3.0",
+    "@types/mocha": "^7.0.1",
+    "@types/node": "^13.7.1",
+    "class-transformer": "^0.2.3",
+    "dotenv": "^8.2.0",
     "koa": "^2.11.0",
+    "koa-bodyparser": "^4.2.1",
+    "koa-logger": "^3.2.1",
+    "routing-controllers": "^0.8.1-alpha.2",
+    "ts-node": "^8.6.2",
+    "tsconfig-paths": "^3.8.0",
+    "tslint": "^6.0.0",
     "typescript": "^3.7.5"
   },
   "devDependencies": {
+    "class-validator": "^0.11.0",
+    "controllers": "^0.0.2",
+    "koa-router": "^8.0.0-alpha.1",
     "nodemon": "^2.0.2",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-node-externals": "^1.7.2"
+    "typedi": "^0.8.0"
   }
 }
