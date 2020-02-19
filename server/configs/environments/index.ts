@@ -7,7 +7,8 @@ const isProd = process.env.NODE_ENV === "production";
 const env = isProd ? production : development;
 
 
-// Preference of environmental variables
+// Preference of
+// environmental variables
 
 Object.keys(env.mongo).forEach(key => {
   env.mongo[key] = process.env[key] || env.mongo[key];
