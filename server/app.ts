@@ -5,15 +5,18 @@ const cors = require("koa-cors");
 const views = require("koa-views");
 const koaStatic = require("koa-static");
 
+const catchError = require("./app/middlewares/exception");
+
 const app = new Koa();
 const { resolve } = require("path");
 
 app.use(parser());
 app.use(cors());
-app.use(views(resolve(__dirname, "./views"), {
+app.use(views(resolve(__dirname, "./app/views"), {
   extension: "ejs"
 }));
-app.use(koaStatic(__dirname + "./public"));
+app.use(koaStatic(__dirname + "./app/public"));
+app.use(catchError);
 
 app.listen(3000, () => {
   console.log("Koa is listening in http://localhost:3000");
