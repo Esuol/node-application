@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/berlinen/myblog#readme",
   "dependencies": {
-    
+    "@types/node": "^13.7.4"
   }
 }
