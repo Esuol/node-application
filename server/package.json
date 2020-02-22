@@ -43,7 +43,7 @@
   "devDependencies": {
     "class-validator": "^0.11.0",
     "controllers": "^0.0.2",
-    "koa-router": "^8.0.0-alpha.1",
+    "koa-router": "^8.0.8",
     "nodemon": "^2.0.2",
     "typedi": "^0.8.0"
   }
