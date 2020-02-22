@@ -37,8 +37,10 @@ class InitManager {
   }
 
   static loadHttpException() {
-    const errors = require("./http-exception");
+    const errors = require("./http-exception.ts");
     global.errs = errors;
   }
 
 }
+
+module.exports = InitManager;

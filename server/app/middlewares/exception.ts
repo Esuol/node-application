@@ -1,6 +1,6 @@
 import { Context } from "vm";
 
-const { HttpException } = require("../configs/http-exception");
+const { HttpException } = require("../core/http-exception");
 
 const catchError = async (ctx: Context, next: any) => {
   try {
