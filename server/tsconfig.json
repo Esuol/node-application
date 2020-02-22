@@ -16,7 +16,7 @@
     },
     "lib": ["es2015", "es6", "esnext.asynciterable", "dom"]
   },
-  "include": ["src/**/*"],
+  "include": ["app/**/*", "app.ts"],
   "awesomeTypescriptLoaderOptions": {
     "forceIsolatedModules": true,
     "useBabel": true,
