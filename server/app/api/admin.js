@@ -6,6 +6,7 @@
 
 const Router = require("koa-router");
 const { Resolve } = require('../lib/helper')
+const res = new Resolve()
 
 const router = new Router({
   prefix: "/api/admin"
@@ -13,7 +14,9 @@ const router = new Router({
 
 router.get("/", (ctx, next) => {
   ctx.response.status = 200;
-  ctx.body = "hello berlin";
+  ctx.body = res.json({
+    name: 'berlin'
+  });
 });
 
 module.exports = router;
