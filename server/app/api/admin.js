@@ -1,6 +1,6 @@
 /**
  * @description 管理员的路由 API 接口
- * @description Administrator's routing API interface
+ * @description Administrator's routing API interfaces
  * @author berlinen
  */
 
