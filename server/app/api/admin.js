@@ -12,16 +12,30 @@ const { LoginManager } = require('../../service/login');
 const { Resolve } = require("../lib/helper")
 const res = new Resolve()
 
+const AUTH_ADMIN = 16;
+
 const router = new Router({
   prefix: "/api/admin"
 });
 
-router.get("/", (ctx, next) => {
-  ctx.response.status = 200;
-  ctx.body = res.json({
-    name: 'berlin'
+// 管理员注册
+router.post('/register', async (ctx) => {
+
+  // 通过验证器校验参数是否通过
+  const v = await new RegisterValidator().validate(ctx);
+
+  // 创建管理员
+  const admin = await AdminDao.create({
+    email: v.get('body.email'),
+    password: v.get('body.password2'),
+    nickname: v.get('body.nickname')
   });
-});
+
+  // 返回结果
+  ctx.response.status = 200;
+  ctx.body = res.json(admin);
+})
+
 
 module.exports = router;
 

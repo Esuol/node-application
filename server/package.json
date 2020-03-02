@@ -52,6 +52,7 @@
     "controllers": "^0.0.2",
     "koa-router": "^8.0.8",
     "nodemon": "^2.0.2",
-    "typedi": "^0.8.0"
+    "typedi": "^0.8.0",
+    "validator": "^12.2.0"
   }
 }
