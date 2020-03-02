@@ -43,3 +43,6 @@ class InitManager {
 }
 
 module.exports = InitManager;
+
+// config: any;
+// errs: any;
