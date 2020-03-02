@@ -5,7 +5,9 @@
  */
 
 const Router = require("koa-router");
-const {Auth} = require("../middlewares/auth");
+
+const { AdminDao} = require('../dao/admin');
+const { Auth } = require("../middlewares/auth");
 const { Resolve } = require("../lib/helper")
 const res = new Resolve()
 
