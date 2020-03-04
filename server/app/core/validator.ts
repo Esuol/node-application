@@ -24,11 +24,15 @@ const {
 class Validator {
 
   data: {};
-  parsed: {};
+  parsed: {
+    default: any
+  };
 
   constructor () {
     this.data = {};
-    this.parsed = {};
+    this.parsed = {
+      default: {}
+    };
   }
 
   _assembleAllParams(ctx) {
