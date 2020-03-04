@@ -16,3 +16,5 @@ class LoginManager {
 module.exports = {
   LoginManager
 };
+
+export {};
