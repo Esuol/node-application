@@ -27,6 +27,7 @@ class Validator {
   parsed: {
     default: any
   };
+  alias: {};
 
   constructor () {
     this.data = {};
@@ -74,6 +75,34 @@ class Validator {
     }
     return false;
   }
+
+  async validate(ctx, alias = {}) {
+    this.alias = alias;
+    const params = this._assembleAllParams(ctx);
+    this.data = cloneDeep(params);
+    this.parsed = cloneDeep(params);
+
+    const memberKeys = findMembers(this, {
+      filter: this._findMembersFilter.bind(this)
+    });
+
+    const errorMsgs = [];
+    // const map = new Map(memberKeys)
+    for (const key of memberKeys) {
+      const result = await this._check(key, alias);
+      if (!result.success) {
+        errorMsgs.push(result.msg);
+      }
+    }
+    if (errorMsgs.length != 0) {
+      throw new ParameterException(errorMsgs);
+    }
+    ctx.v = this;
+    return this;
+  }
+
+  _check () {}
+
 
 }
 
