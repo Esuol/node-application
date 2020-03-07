@@ -101,7 +101,50 @@ class Validator {
     return this;
   }
 
-  _check () {}
+  async _check(key, alias = {}) {
+    const isCustomFunc = typeof (this[key]) == "function" ? true : false;
+    let result;
+    if (isCustomFunc) {
+      try {
+        await this[key](this.data);
+        result = new RuleResult(true);
+      } catch (error) {
+        result = new RuleResult(false, error.msg || error.message || "参数错误");
+      }
+      // 函数验证
+    } else {
+      // 属性验证, 数组，内有一组Rule
+      const rules = this[key];
+      const ruleField = new RuleField(rules);
+      // 别名替换
+      key = alias[key] ? alias[key] : key;
+      const param = this._findParam(key);
+
+      result = ruleField.validate(param.value);
+
+      if (result.pass) {
+        // 如果参数路径不存在，往往是因为用户传了空值，而又设置了默认值
+        if (param.path.length == 0) {
+          set(this.parsed, ["default", key], result.legalValue);
+        } else {
+          set(this.parsed, param.path, result.legalValue);
+        }
+      }
+    }
+    if (!result.pass) {
+      const msg = `${isCustomFunc ? "" : key}${result.msg}`;
+      return {
+        msg: msg,
+        success: false
+      };
+    }
+    return {
+      msg: "ok",
+      success: true
+    };
+  }
+
+  _findParam (key: any) {}
 
 
 }
@@ -109,6 +152,7 @@ class Validator {
 
 
 
+class RuleField {}
 class RuleResult {
   constructor(pass, msg = "") {
     Object.assign(this, {
