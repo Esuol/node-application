@@ -144,8 +144,40 @@ class Validator {
     };
   }
 
-  _findParam (key: any) {
-    /// finad
+  _findParam(key) {
+    let value;
+    value = get(this.data, ["query", key]);
+    if (value) {
+      return {
+        value,
+        path: ["query", key]
+      };
+    }
+    value = get(this.data, ["body", key]);
+    if (value) {
+      return {
+        value,
+        path: ["body", key]
+      };
+    }
+    value = get(this.data, ["path", key]);
+    if (value) {
+      return {
+        value,
+        path: ["path", key]
+      };
+    }
+    value = get(this.data, ["header", key]);
+    if (value) {
+      return {
+        value,
+        path: ["header", key]
+      };
+    }
+    return {
+      value: null,
+      path: []
+    };
   }
 
 
