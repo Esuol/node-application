@@ -17,6 +17,7 @@ app.use(views(resolve(__dirname, "./app/views"), {
   extension: "ejs"
 }));
 app.use(koaStatic(__dirname + "./app/public"));
+
 app.use(catchError);
 
 InitManager.initCore(app);
