@@ -1,7 +1,7 @@
 /**
  * @description 管理员 API 接口
  * @description Administrator's routing API interfaces
- * @author berlinen
+ * @author berlin
  */
 
 const Router = require("koa-router");
