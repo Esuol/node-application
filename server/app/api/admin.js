@@ -18,7 +18,7 @@ const router = new Router({
   prefix: "/api/admin"
 });
 
-// 管理员注册
+// 管理员 注册功能
 router.post('/register', async (ctx) => {
 
   // 通过验证器校验参数是否通过
