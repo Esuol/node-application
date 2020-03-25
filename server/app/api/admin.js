@@ -1,5 +1,5 @@
 /**
- * @description 管理员的路由 API 接口
+ * @description 管理员 API 接口
  * @description Administrator's routing API interfaces
  * @author berlinen
  */
@@ -35,7 +35,6 @@ router.post('/register', async (ctx) => {
   ctx.response.status = 200;
   ctx.body = res.json(admin);
 })
-
 
 module.exports = router;
 
