@@ -1,7 +1,7 @@
 /**
- * @description 管理员的路由 API 接口
+ * @description 管理员 API 接口
  * @description Administrator's routing API interfaces
- * @author berlinen
+ * @author berlin
  */
 
 const Router = require("koa-router");
@@ -18,10 +18,10 @@ const router = new Router({
   prefix: "/api/admin"
 });
 
-// 管理员注册
+// 管理员 注册功能
 router.post('/register', async (ctx) => {
 
-  // 通过验证器校验参数是否通过
+  // 通过验证器校验参数通过与否
   const v = await new RegisterValidator().validate(ctx);
 
   // 创建管理员
@@ -35,7 +35,6 @@ router.post('/register', async (ctx) => {
   ctx.response.status = 200;
   ctx.body = res.json(admin);
 })
-
 
 module.exports = router;
 
