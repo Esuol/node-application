@@ -238,6 +238,18 @@ class RuleField {
         return new RuleFieldResult(false, "字段是必填参数");
       }
     }
+    const filedResult = new RuleFieldResult(false);
+    for (const rule of this.rules) {
+      const result = rule.validate(field);
+      if (!result.pass) {
+        filedResult.msg = result.msg;
+        filedResult.legalValue = null;
+        // 一旦一条校验规则不通过，则立即终止这个字段的验证
+        return filedResult;
+      }
+    }
+    return new RuleFieldResult(true, "", this._convert(field));
+
 
 }
 
