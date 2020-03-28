@@ -267,14 +267,7 @@ _convert(value) {
   return value;
 }
 
-_allowEmpty() {
-  for (const rule of this.rules) {
-    if (rule.name == "isOptional") {
-      return true;
-    }
-  }
-  return false;
-}
+
 
 
 export {};
