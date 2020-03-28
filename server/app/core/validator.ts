@@ -250,7 +250,21 @@ class RuleField {
     }
     return new RuleFieldResult(true, "", this._convert(field));
 
+}
 
+_convert(value) {
+  for (const rule of this.rules) {
+    if (rule.name == "isInt") {
+      return parseInt(value);
+    }
+    if (rule.name == "isFloat") {
+      return parseFloat(value);
+    }
+    if (rule.name == "isBoolean") {
+      return value ? true : false;
+    }
+  }
+  return value;
 }
 
 export {};
