@@ -21,9 +21,6 @@ const router = new Router({
 // 管理员 注册功能
 router.post('/register', async (ctx) => {
 
-  // 通过验证器校验参数通过与否
-  const v = await new RegisterValidator().validate(ctx);
-
   // 创建管理员
   const admin = await AdminDao.create({
     email: v.get('body.email'),
@@ -35,6 +32,7 @@ router.post('/register', async (ctx) => {
   ctx.response.status = 200;
   ctx.body = res.json(admin);
 })
+
 
 module.exports = router;
 
