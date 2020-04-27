@@ -1,18 +1,26 @@
 class Resolve {
-  success(msg = "success", errCode = 0, code = 200) {
+  success(message = "success", errCode = 0, code = 200) {
     return {
-      msg,
       code,
+      message,
       errCode,
     };
   }
 
-  json(data, msg = "success", errorCode = 0, code = 200) {
+  json(data, message = "success", errorCode = 0, code = 200) {
     return {
       code,
       data,
-      msg,
+      message,
       errorCode
+    };
+  }
+
+  error(data, message = "error", code = 500) {
+    return {
+      data,
+      code,
+      message
     };
   }
 }
