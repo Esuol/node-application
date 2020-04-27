@@ -4,7 +4,7 @@
   "description": "server",
   "main": "index.js",
   "scripts": {
-    "start": "export NODE_ENV=development; nodemon --config nodemon.json",
+    "dev": "export NODE_ENV=development; nodemon --config nodemon.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

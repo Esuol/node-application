@@ -18,6 +18,13 @@ const router = new Router({
   prefix: "/api/admin"
 });
 
+router.get('/list', async (ctx) => {
+  ctx.response.status = 200;
+  ctx.body = res.json({
+    id: 1
+  });
+})
+
 // 管理员 注册功能
 router.post('/register', async (ctx) => {
 

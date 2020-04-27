@@ -1,17 +1,19 @@
-const dev = process.env.REACT_APP_ENV !== "production";
-const path = require( "path" );
+const dev = process.env.REACT_APP_ENV !== "production"
+const path = require( "path" )
 const webpack = require('webpack')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer') // 使用交互式可缩放树图可视化webpack输出文件的大小
 // 识别特定类别的webpack错误，并清理、聚合它们，并对它们进行优先排序，以提供更好的开发人员体验
-const FriendlyErrorsWebpackPlugin = require( "friendly-errors-webpack-plugin" );
-const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HappyPack = require('happypack');
+const FriendlyErrorsWebpackPlugin = require( "friendly-errors-webpack-plugin" )
+const MiniCssExtractPlugin = require( "mini-css-extract-plugin" )
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HappyPack = require('happypack')
 // 注意这个引入的坑，最新版的需要这样引入，而不是直接const CleanWebpackPlugin
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 // css Tree Shaking
 const PurifyCSS = require('purifycss-webpack')
 const glob = require('glob-all')
+// 环境API
+const apiConfig = require('./env')
 
 const plugins = [
   new FriendlyErrorsWebpackPlugin(),
@@ -46,8 +48,11 @@ const plugins = [
       path.resolve(__dirname, './src/*.html'), // 请注意，我们同样需要对 html 文件进行 tree shaking
       path.resolve(__dirname, './src/*.js')
     ])
+  }),
+  new webpack.DefinePlugin({
+    API_CONFIG: JSON.stringify(apiConfig)
   })
-];
+]
 
 if(!dev) {
   plugins.push(new BundleAnalyzerPlugin({

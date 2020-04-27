@@ -2,8 +2,15 @@ import axios from 'axios'
 
 const request: any = {}
 
-const ajaxUrl = 'http://www.baidu.com/'
-console.log('ajaxUrl', ajaxUrl)
+type ApiTypes = {
+  base_url: string
+}
+
+declare const API_CONFIG: ApiTypes
+
+const { base_url } = API_CONFIG
+
+const ajaxUrl = base_url
 
 request.axios = axios.create({
   baseURL: ajaxUrl,
