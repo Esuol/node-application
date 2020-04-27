@@ -2,7 +2,8 @@ import axios from 'axios'
 
 const request: any = {}
 
-const ajaxUrl = process.env.DEV_BASE_URL
+const ajaxUrl = 'http://www.baidu.com/'
+console.log('ajaxUrl', ajaxUrl)
 
 request.axios = axios.create({
   baseURL: ajaxUrl,

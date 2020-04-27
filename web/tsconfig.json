@@ -18,12 +18,7 @@
     "emitDecoratorMetadata": true,
     // `vs code`所需要的，在开发时找到对应的路径，真实的引用是在`webpack`中配置的`alias`
     "paths": {
-      "@Common": [
-        "../src/common"
-      ],
-      "@Common/*": [
-        "../src/common/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "exclude": [

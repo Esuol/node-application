@@ -13,7 +13,6 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const PurifyCSS = require('purifycss-webpack')
 const glob = require('glob-all')
 
-
 const plugins = [
   new FriendlyErrorsWebpackPlugin(),
   new MiniCssExtractPlugin({
@@ -26,7 +25,17 @@ const plugins = [
   }),
   new HappyPack({
     id: 'babel',
-    loaders:['babel-loader?cacheDirectory']
+    threads: 3,
+    loaders:[
+      'babel-loader?cacheDirectory',
+      // 解析ts
+      {
+        path: 'ts-loader',
+        query: {
+          happyPackMode: true
+        }
+      }
+    ]
   }),
   new CleanWebpackPlugin(),
   new webpack.HotModuleReplacementPlugin(), // 热模块替换HMR
@@ -60,8 +69,9 @@ module.exports = {
     ],
     alias: {
       "@": path.join(__dirname, "src"),
-      pages: path.join(__dirname, "src/pages"),
-      router: path.join(__dirname, "src/router")
+      "@/pages": path.join(__dirname, "src/pages"),
+      "@/router": path.join(__dirname, "src/router"),
+      "@/api": path.join(__dirname, "src/api"),
     },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },

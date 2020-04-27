@@ -20,6 +20,8 @@ request.axios.interceptors.request.use((config: ConfigTypes) => {
     // 开启Loading
   }
   // 获取token
+  return config;
+  // 获取token
 }, (err: any) => Promise.reject(err))
 
 
@@ -39,7 +41,13 @@ request.axios.interceptors.response.use((response: any) => {
   return response
 }, (error: any) => {
   const res = error.response
-  let extraErrors = res.config.extraErrors || res.config.params.extraErrors || []
+
+  let extraErrors = []
+  if(res && res.config && res.config.extraErrors) {
+    extraErrors = res.config.extraErrors
+  } else if (res && res.config && res.config.params && res.config.params.extraErrors) {
+    extraErrors = res.config.params.extraErrors
+  }
   const { code = 500 } = res ? res.data : {}
   if(extraErrors.includes(code)) {
     switch (code) {
