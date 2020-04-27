@@ -4,12 +4,18 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer') // 使用交
 // 识别特定类别的webpack错误，并清理、聚合它们，并对它们进行优先排序，以提供更好的开发人员体验
 const FriendlyErrorsWebpackPlugin = require( "friendly-errors-webpack-plugin" );
 const MiniCssExtractPlugin = require( "mini-css-extract-plugin" );
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const plugins = [
   new FriendlyErrorsWebpackPlugin(),
   new MiniCssExtractPlugin({
       filename: "styles.css",
   }),
+  new HtmlWebpackPlugin({
+    filename: 'index.html',
+    template: '../public/index.html',
+    inject: true
+  })
 ];
 
 if(!dev) {
@@ -24,19 +30,22 @@ module.exports = {
   mode: dev ? 'development' : 'prduction',
   context: path.join( __dirname, "src" ),
   devtool: dev ? 'node' : 'source-map',
-  entry: path.join(__dirname, '../src/index.tsx'),
+  entry: path.join(__dirname, './src/index.tsx'),
   resolve: {
     modules: [
       path.resolve( "./src" ),
       'node_modules',
     ],
+    alias: {
+      '@src': path.resolve(__dirname, '/src/src'),
+    },
     extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
   module: {
     rules: [
       {
           test: /\.(j|t)sx?$/,
-          include: [resolve('./src')],
+          include: [path.resolve('./src')],
           use: [
             {
               loader: 'babel-loader'
@@ -69,34 +78,47 @@ module.exports = {
             }
           }
         ]
-     }
+     },
      // 图片字体等资源加载
      {
-       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/
+       test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
        use: [
         {
-        loader: 'url-loader',
-        options: {
-          //1024 == 1kb
-          //小于10kb时打包成base64编码的图片否则单独打包成图片
-          limit: 10240,
-          name: path.join('img/[name].[hash:7].[ext]')
+          loader: 'url-loader',
+          options: {
+            //1024 == 1kb
+            //小于10kb时打包成base64编码的图片否则单独打包成图片
+            limit: 10240,
+            name: path.join('img/[name].[hash:7].[ext]')
+          }
         }
-      }]
+      ]
      },
+     // url-loader
      {
-      {
-        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: [{
+      test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+      use: [
+        {
           loader: 'url-loader',
           options: {
             limit: 10240,
             name: path.join('font/[name].[hash:7].[ext]')
           }
-        }]
-      }
+        }
+      ]
      }
-    ],
+   ],
+ },
+  devServer: {
+    host: 'localhost',
+    port: 3000,
+    historyApiFallback: true,
+    overlay: {
+      //当出现编译器错误或警告时，就在网页上显示一层黑色的背景层和错误信息
+      errors: true
+    },
+    inline: true,
+    hot: true
   },
   output: {
     path: path.resolve( __dirname, 'dist' ),
