@@ -1,4 +1,3 @@
-
 const requireDirectory = require("require-directory");
 const Router = require("koa-router");
 
@@ -39,10 +38,8 @@ class InitManager {
   static loadHttpException() {
     const errors = require("./http-exception");
     global.errs = errors;
+    console.log( global.errs);
   }
 }
 
 module.exports = InitManager;
-
-// config: any;
-// errs: any;
