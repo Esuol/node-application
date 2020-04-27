@@ -8,9 +8,9 @@ module.exports = {
     password: 'berlinen'
   },
   security: {
-    secretKey: "secretKey",
+    tokenKey: "tokenKey",
     // 过期时间 1小时
-    expiresIn: 60 * 60
+    expiresTime: 60 * 60
   },
   wx: {
     appId: '',

@@ -41,7 +41,7 @@ class AdminDao {
   }
 
   // 验证密码
-  static async verify(email, plainPassword) {
+  static async verify(email: string, plainPassword: string) {
 
     // 查询用户是否存在
     const admin = await Admin.findOne({

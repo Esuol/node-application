@@ -1,6 +1,11 @@
 const basicAuth = require("basic-auth");
 const jwt = require("jsonwebtoken");
 
+interface DecodeType {
+  scope: number;
+  uid: string;
+}
+
 class Auth {
   level: number;
   static USER: number;
@@ -31,11 +36,10 @@ class Auth {
         throw new global.errs.Forbidden(errMsg);
       }
 
-      const decode = jwt.verify(tokenToken.name, global.config.security.secretKey);
-
+      let decode: DecodeType;
       try {
-        const decode = jwt.verify(tokenToken.name, global.config.security.secretKey);
-
+        // 验证
+        decode = jwt.verify(tokenToken.name, global.config.security.tokenKey);
       } catch (error) {
         // token 不合法 过期
         if (error.name === "TokenExpiredError") {

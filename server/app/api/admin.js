@@ -8,7 +8,7 @@ const Router = require("koa-router");
 
 const { AdminDao } = require('../dao/admin');
 const { Auth } = require("../middlewares/auth");
-const { LoginManager } = require('../service/login');
+const { Login } = require('../service/login');
 const { Resolve } = require("../lib/helper")
 const res = new Resolve()
 
@@ -18,11 +18,20 @@ const router = new Router({
   prefix: "/api/admin"
 });
 
-router.get('/list', async (ctx) => {
-  ctx.response.status = 200;
-  ctx.body = res.json({
-    id: 1
+// login 登录获取token
+router.post('/login', async (ctx) => {
+  // 生成token
+  const token = await Login.userLogin({
+    email: v.get('body.email'),
+    password: v.get('body.password')
   });
+
+  ctx.response.status = 200;
+  ctx.body = {
+    code: 200,
+    msg: '登录成功',
+    token
+  }
 })
 
 // 管理员 注册功能
