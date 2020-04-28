@@ -1,0 +1,42 @@
+{
+  "name": "admin",
+  "version": "1.0.0",
+  "description": "管理博客",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/berlinen/myblog/tree/master/admin"
+  },
+  "keywords": [
+    "react",
+    "ssr"
+  ],
+  "author": "berlin",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^25.4.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-css-modules-transform": "^1.6.2",
+    "babel-plugin-dynamic-import-node": "^2.3.3",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.2",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "eslint": "^6.8.0",
+    "eslint-config-fortech-react": "^1.0.2",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "style-loader": "^1.2.0",
+    "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.7.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}
