@@ -1,34 +1,40 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import * as CounterActions from '../../action/count';
+/* eslint-disable react/prop-types */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-useless-constructor */
+/* eslint-disable react/prefer-stateless-function */
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import * as CounterActions from "../../action/count";
 
 class Layout extends Component {
   constructor() {
-    super()
+    super();
   }
 
   render() {
     return (
       <span>
-
-        <a href={`/`} style={{color: 'pink', fontSize: 50}}>首页</a>
-        <a href={`/page2`} style={{color: 'pink', fontSize: 50}}>次页</a>
+        <a href="/" style={{ color: "pink", fontSize: 50 }}>
+          首页
+        </a>
+        <a href="/page2" style={{ color: "pink", fontSize: 50 }}>
+          次页
+        </a>
         <a href="">{this.props.counter}</a>
-        {
-          this.props.children
-        }
+        {this.props.children}
       </span>
-    )
+    );
   }
 }
 const mapStateToProps = (state) => ({
   counter: state.counter,
-  state: state
-})
+  state,
+});
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators(CounterActions, dispatch)
-}
+  return bindActionCreators(CounterActions, dispatch);
+};
 
-export default connect(mapStateToProps, mapDispatchToProps)(Layout)
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);

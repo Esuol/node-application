@@ -1,8 +1,8 @@
-import { combineReducers } from 'redux'
-import * as page from './counter'
+import { combineReducers } from "redux";
+import * as page from "./counter";
 
 const rootReducer = combineReducers({
-  ...page
-})
+  ...page,
+});
 
-export default rootReducer
+export default rootReducer;

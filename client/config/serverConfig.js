@@ -1,24 +1,25 @@
-const path = require('path');
-const nodeExternals = require('webpack-node-externals');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+/* eslint-disable import/no-extraneous-dependencies */
+const path = require("path");
+const nodeExternals = require("webpack-node-externals");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const resolve = {
   alias: {
-    action: path.join(__dirname, './web/action')
+    action: path.join(__dirname, "./web/action"),
   },
-  extensions: ['.js', '.jsx']
-}
+  extensions: [".js", ".jsx"],
+};
 
 const serverConfig = {
-  target: 'node',
+  target: "node",
   entry: {
-    page1: './web/render/serverRouter.js',
+    page1: "./web/render/serverRouter.js",
   },
   resolve,
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, '../app/build'),
-    libraryTarget: 'commonjs'
+    filename: "[name].js",
+    path: path.resolve(__dirname, "../app/build"),
+    libraryTarget: "commonjs",
   },
   mode: process.env.NODE_ENV,
   externals: [nodeExternals()],
@@ -28,28 +29,26 @@ const serverConfig = {
         test: /\.(jsx|js)?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: "babel-loader",
+        },
       },
       {
         test: /\.(css|less)$/,
         use: [
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
           {
-            loader: 'less-loader'
-          }
-        ]
-      }
-    ]
+            loader: "less-loader",
+          },
+        ],
+      },
+    ],
   },
-  plugins: [
-    new CleanWebpackPlugin(),
-  ]
+  plugins: [new CleanWebpackPlugin()],
 };
 
-module.exports = serverConfig
+module.exports = serverConfig;

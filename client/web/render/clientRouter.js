@@ -1,22 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { Provider } from 'react-redux';
-import Router from '../router';
-import configStore from '../store';
+import { Provider } from "react-redux";
+import Router from "../router";
+import configStore from "../store";
 
-let initStore = window.__INIT_STORE__;
-let store = configStore(initStore);
+// eslint-disable-next-line no-underscore-dangle
+const initStore = window.__INIT_STORE__;
+const store = configStore(initStore);
 
 function ClientRender() {
   return (
     <Provider store={store}>
-      <BrowserRouter >
+      <BrowserRouter>
         <Router />
       </BrowserRouter>
     </Provider>
-
-  )
+  );
 }
 
-ReactDOM.hydrate(<ClientRender/>, document.querySelector('#app'));
+ReactDOM.hydrate(<ClientRender />, document.querySelector("#app"));
