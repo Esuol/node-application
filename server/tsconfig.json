@@ -14,10 +14,6 @@
     "paths": {
       "@configs": ["src/configs/configs.dev"]
     },
-    "typeRoots" : [
-      "./node_modules/@types",
-      "."
-    ],
     "lib": ["es2015", "es6", "esnext.asynciterable", "dom"],
   },
   "include": ["app/**/*", "app.ts", "global.d.ts"],
