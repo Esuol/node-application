@@ -1,0 +1,15 @@
+
+{
+  "verbose": false,
+  "debug": false,
+  "exec": "node index.js",
+  "ignore": [
+    "node_modules",
+  ],
+  "events": {
+    "restart": ""
+  },
+  "watch": ["app/", "web/", "./index.js"],
+  "ext": "ts, js, css",
+  "inspect": true
+}
