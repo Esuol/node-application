@@ -1,5 +1,4 @@
-const serverConfig = require('./config/serverConfig')
-const clientConfig = require('./config/clientConfig')
+const serverConfig = require("./config/serverConfig");
+const clientConfig = require("./config/clientConfig");
 
-module.exports = [serverConfig, clientConfig]
-
+module.exports = [serverConfig, clientConfig];

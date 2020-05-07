@@ -51,18 +51,21 @@ const clientConfig = {
             options: {
               lessOptions: {
                 javascriptEnabled: true,
+                modifyVars: {
+                  "@primary-color": "#1DA57A",
+                },
               },
               // modifyVars: theme   //antd默认主题样式
             },
           },
-          {
-            test: /\.(png|jpeg|jpg|gif|svg)?$/,
-            loader: 'url-loader',
-            options: {
-              limit: 8000,
-              publicPath: '/'
-            }
-          }
+          // {
+          //   test: /\.(png|jpeg|jpg|gif|svg)?$/,
+          //   loader: "url-loader",
+          //   options: {
+          //     limit: 8000,
+          //     publicPath: "/",
+          //   },
+          // },
         ],
       },
     ],

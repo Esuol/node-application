@@ -6,6 +6,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+// import Sidebar from "../sidebar";
 import * as CounterActions from "../../action/count";
 
 class Layout extends Component {
@@ -15,16 +16,18 @@ class Layout extends Component {
 
   render() {
     return (
-      <span>
-        <a href="/" style={{ color: "pink", fontSize: 50 }}>
-          首页
-        </a>
-        <a href="/page2" style={{ color: "pink", fontSize: 50 }}>
-          次页
-        </a>
-        <a href="">{this.props.counter}</a>
-        {this.props.children}
-      </span>
+      <div>
+        <span>
+          <a href="/" style={{ color: "pink", fontSize: 50 }}>
+            首页
+          </a>
+          <a href="/page2" style={{ color: "pink", fontSize: 50 }}>
+            次页
+          </a>
+          <a href="">{this.props.counter}</a>
+          {this.props.children}
+        </span>
+      </div>
     );
   }
 }
