@@ -55,6 +55,14 @@ const clientConfig = {
               // modifyVars: theme   //antd默认主题样式
             },
           },
+          {
+            test: /\.(png|jpeg|jpg|gif|svg)?$/,
+            loader: 'url-loader',
+            options: {
+              limit: 8000,
+              publicPath: '/'
+            }
+          }
         ],
       },
     ],
