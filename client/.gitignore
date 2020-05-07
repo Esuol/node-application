@@ -4,6 +4,8 @@
 # production
 /dist
 
+/app/build
+
 /public
 # misc
 .DS_Store
