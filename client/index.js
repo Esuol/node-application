@@ -13,6 +13,8 @@ const app = new Koa();
 
 const routerManagement = require("./app/router");
 const manifest = require("./public/manifest.json");
+// reslove node环境不解析less文件
+require.extensions[".less"] = () => {};
 
 /**
  * 处理链接

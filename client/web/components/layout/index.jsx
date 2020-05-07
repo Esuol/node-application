@@ -6,7 +6,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-// import Sidebar from "../sidebar";
+import Sidebar from "../sidebar";
 import * as CounterActions from "../../action/count";
 
 class Layout extends Component {
@@ -27,6 +27,7 @@ class Layout extends Component {
           <a href="">{this.props.counter}</a>
           {this.props.children}
         </span>
+        <Sidebar />
       </div>
     );
   }
