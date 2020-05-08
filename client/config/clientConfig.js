@@ -6,6 +6,7 @@ const ManifestPlugin = require("webpack-manifest-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HappyPack = require('happypack');
 const HardSourceWebpackPlugin = require('hard-source-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin');
 
 const resolve = {
   alias: {
@@ -61,6 +62,13 @@ const clientConfig = {
           },
         ],
       },
+    ],
+  },
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        parallel: true,
+      }),
     ],
   },
   plugins: [

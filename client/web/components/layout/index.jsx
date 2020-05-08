@@ -9,6 +9,7 @@ import { bindActionCreators } from "redux";
 import { Row, Col } from 'antd';
 import Sidebar from "../sidebar";
 import Header from "../header";
+import Container from "../container";
 import * as CounterActions from "../../action/count";
 import './index.less'
 
@@ -27,6 +28,9 @@ class Layout extends Component {
         </Col>
         <Col xl={19}>
           <Header />
+          <Container>
+            {this.props.children}
+          </Container>
         </Col>
     </Row>
     );
