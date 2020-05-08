@@ -21,12 +21,12 @@ class Layout extends Component {
   render() {
     return (
       <Row className="layout">
-        <Col xl={5}>
+        <Col>
           <div style={{height: '100%'}}>
             <Sidebar className="layout-sidebar" />
           </div>
         </Col>
-        <Col xl={19}>
+        <Col>
           <Header />
           <Container>
             {this.props.children}
