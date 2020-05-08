@@ -10,11 +10,6 @@ export default function Sider() {
     current: "1",
   });
 
-  const changeTheme = (value) => {
-    setState({
-      theme: value ? "dark" : "light",
-    });
-  };
 
   const handleClick = (e) => {
     console.log("click ", e);
@@ -25,18 +20,10 @@ export default function Sider() {
 
   return (
     <>
-      <Switch
-        checked={state.theme === "dark"}
-        onChange={changeTheme}
-        checkedChildren="Dark"
-        unCheckedChildren="Light"
-      />
-      <br />
-      <br />
       <Menu
-        theme={state.theme}
+        theme="dark"
         onClick={handleClick}
-        style={{ width: 256 }}
+        style={{ width: 256, height: '100%' }}
         defaultOpenKeys={["sub1"]}
         selectedKeys={[state.current]}
         mode="inline"

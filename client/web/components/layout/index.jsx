@@ -6,8 +6,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import { Row, Col } from 'antd';
 import Sidebar from "../sidebar";
 import * as CounterActions from "../../action/count";
+import './index.less'
 
 class Layout extends Component {
   constructor() {
@@ -16,19 +18,16 @@ class Layout extends Component {
 
   render() {
     return (
-      <div>
-        <span>
-          <a href="/" style={{ color: "pink", fontSize: 50 }}>
-            首页
-          </a>
-          <a href="/page2" style={{ color: "pink", fontSize: 50 }}>
-            次页
-          </a>
-          <a href="">{this.props.counter}</a>
-          {this.props.children}
-        </span>
-        <Sidebar />
-      </div>
+      <Row className="layout">
+        <Col span={5}>
+          <div style={{height: '100%'}}>
+            <Sidebar className="layout-sidebar" />
+          </div>
+        </Col>
+        <Col span={19}>
+          right
+        </Col>
+    </Row>
     );
   }
 }
