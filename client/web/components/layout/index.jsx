@@ -8,6 +8,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { Row, Col } from 'antd';
 import Sidebar from "../sidebar";
+import Header from "../header";
 import * as CounterActions from "../../action/count";
 import './index.less'
 
@@ -19,13 +20,13 @@ class Layout extends Component {
   render() {
     return (
       <Row className="layout">
-        <Col span={5}>
+        <Col xl={5}>
           <div style={{height: '100%'}}>
             <Sidebar className="layout-sidebar" />
           </div>
         </Col>
-        <Col span={19}>
-          right
+        <Col xl={19}>
+          <Header />
         </Col>
     </Row>
     );
