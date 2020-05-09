@@ -32,6 +32,7 @@ module.exports = {
       "react",
       // "@typescript-eslint"
   ],
+  "parser": "babel-eslint",
   // ESLint 附带有大量的规则。你可以使用注释或配置文件修改你项目中要使用的规则。要改变一个规则设置，你必须将规则 ID 设置为下列值之一：
   // "off" 或 0 - 关闭规则
   // "warn" 或 1 - 开启规则，使用警告级别的错误：warn (不会导致程序退出)

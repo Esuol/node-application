@@ -1,17 +1,14 @@
+/* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { Switch } from "react-router";
 import { Route } from "react-router-dom";
-import Page1 from "../pages/page";
-import Page2 from "../pages/page2";
 import Layout from "../components/layout";
+import menuList from "./const";
 
 function RenderRouter() {
   return (
     <Switch>
-      <Layout>
-        <Route exact path="/" component={Page1} />
-        <Route exact path="/page2" component={Page2} />
-      </Layout>
+      <Layout>{menuList.map((item) => item.children.map((route) => <Route {...route} />))}</Layout>
     </Switch>
   );
 }
