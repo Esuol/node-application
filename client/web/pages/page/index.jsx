@@ -36,9 +36,9 @@ class Counter extends React.Component {
   render() {
     return (
       <div className="title-name">
-        <h1>{this.props.counter}</h1>
+        <span>{this.props.counter}</span>
 
-        <h2>{this.state.test}</h2>
+        <span>{this.state.test}</span>
         <button onClick={this.onClick.bind(this)}>点我加</button>
       </div>
     );

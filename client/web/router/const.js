@@ -17,8 +17,7 @@ export default [
         exact: true,
         component: Loadable({
           loader: () => import("../pages/page"),
-          // loading: () => <Loading state />
-          loading: () => <span>loading...</span>,
+          loading: () => <Loading />,
         }),
       },
       {
@@ -28,8 +27,7 @@ export default [
         exact: true,
         component: Loadable({
           loader: () => import("../pages/page2"),
-          // loading: () => <Loading state />
-          loading: () => <span>loading...</span>,
+          loading: () => <Loading />,
         }),
       },
     ],
