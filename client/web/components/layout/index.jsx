@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable react/prop-types */
 /* eslint-disable react/destructuring-assignment */
 /* eslint-disable jsx-a11y/anchor-is-valid */
@@ -14,8 +15,8 @@ import * as CounterActions from "../../action/count";
 import "./index.less";
 
 class Layout extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
   }
 
   render() {
@@ -23,7 +24,7 @@ class Layout extends Component {
       <Row className="layout">
         <Col>
           <div style={{ height: "100%" }}>
-            <Sidebar className="layout-sidebar" />
+            <Sidebar className="layout-sidebar" {...this.props} />
           </div>
         </Col>
         <Col>

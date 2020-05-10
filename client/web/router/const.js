@@ -16,7 +16,7 @@ export default [
         path: "/",
         exact: true,
         component: Loadable({
-          loader: () => import("../pages/page"),
+          loader: () => import("../pages/article"),
           loading: () => <Loading />,
         }),
       },
@@ -26,7 +26,7 @@ export default [
         path: "/add-article",
         exact: true,
         component: Loadable({
-          loader: () => import("../pages/page2"),
+          loader: () => import("../pages/article/list"),
           loading: () => <Loading />,
         }),
       },

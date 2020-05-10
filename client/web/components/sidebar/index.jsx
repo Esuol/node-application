@@ -9,11 +9,25 @@ import menuList from "../../router/const";
 
 const { SubMenu } = Menu;
 
-export default function Sider() {
+function Sider() {
+  const [openKeys, setOpenKeys] = useState([])
   const [state, setState] = useState({
     theme: "dark",
     current: "1",
   });
+
+  const openChange = routerItemsArray => {
+    if (routerItemsArray.length < openKeys.length) {
+        setOpenKeys(routerItemsArray)
+        return
+      }
+
+      routerItemsArray.map((item) => {
+        if (!openKeys.includes(item)) {
+          setOpenKeys(prev => [...prev, item])
+        }
+      })
+  }
 
   const handleClick = (e) => {
     setState({
@@ -25,10 +39,12 @@ export default function Sider() {
     <>
       <Menu
         theme="dark"
+        openKeys={openKeys}
+        selectedKeys={[state.current]}
         onClick={handleClick}
+        onOpenChange={openChange}
         style={{ width: 256, height: "100%" }}
         defaultOpenKeys={["sub1"]}
-        selectedKeys={[state.current]}
         mode="inline"
       >
         {menuList.map((item) => (
@@ -44,7 +60,13 @@ export default function Sider() {
             {item.children &&
             item.children.map((route) => {
               return (
-                <Menu.Item key={route.key}>
+                <Menu.Item
+                  key={route.key}
+                  onClick={() => {
+                    // 设置文档标题
+                    document.title = route.text;
+                }}
+                >
                   <Link to={route.path}>{route.text}</Link>
                 </Menu.Item>
               );
@@ -55,3 +77,5 @@ export default function Sider() {
     </>
   );
 }
+
+export default Sider
