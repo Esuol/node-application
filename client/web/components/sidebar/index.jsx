@@ -10,10 +10,9 @@ import menuList from "../../router/const";
 const { SubMenu } = Menu;
 
 function Sider() {
-  const [openKeys, setOpenKeys] = useState([])
-  const [state, setState] = useState({
-    theme: "dark",
-    current: "1",
+  const [openKeys, setOpenKeys] = useState(["article"])
+  const [selectedKeys, setSelectedKeys] = useState({
+    current: "article-a",
   });
 
   const openChange = routerItemsArray => {
@@ -30,17 +29,18 @@ function Sider() {
   }
 
   const handleClick = (e) => {
-    setState({
+    setSelectedKeys({
       current: e.key,
     });
   };
+
 
   return (
     <>
       <Menu
         theme="dark"
         openKeys={openKeys}
-        selectedKeys={[state.current]}
+        selectedKeys={[selectedKeys.current]}
         onClick={handleClick}
         onOpenChange={openChange}
         style={{ width: 256, height: "100%" }}

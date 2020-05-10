@@ -23,7 +23,7 @@ export default [
       {
         key: "article-b",
         text: "文章新增",
-        path: "/add-article",
+        path: "/article-add",
         exact: true,
         component: Loadable({
           loader: () => import("../pages/article/list"),
