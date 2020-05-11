@@ -36,7 +36,7 @@ function handleLink(fileName, req, defineParams) {
   }
   // 服务器渲染
   // eslint-disable-next-line import/no-dynamic-require
-  const dom = require(path.join(process.cwd(), `app/build/${fileName}.js`)).default;
+  const dom = require(path.join(process.cwd(), `app/build/dist/${fileName}.js`)).default;
   const element = React.createElement(dom(req, defineParams));
   obj.html = ReactDOMServer.renderToString(element);
 

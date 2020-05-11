@@ -4,7 +4,7 @@
 
 exports.renderHtml = async (ctx) => {
   const initState = ctx.query.state ? JSON.parse(ctx.query.state) : null;
-  ctx.renderServer("page1", { store: JSON.stringify(initState || { counter: 1 }) });
+  ctx.renderServer("article", { store: JSON.stringify(initState || { counter: 1 }) });
 };
 exports.favicon = (ctx) => {
   ctx.body = "xxx";
