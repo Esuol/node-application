@@ -2,8 +2,9 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable array-callback-return */
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { Link } from "react-router-dom";
-import { Menu, Icon } from "antd";
+import { Menu } from "antd";
 
 import menuList from "../../router/const";
 
@@ -74,6 +75,11 @@ function Sider(props) {
       </Menu>
     </>
   );
+}
+
+Sider.propTypes = {
+  // eslint-disable-next-line react/require-default-props
+  collapsed: PropTypes.bool
 }
 
 export default Sider
