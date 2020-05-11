@@ -9,7 +9,8 @@ import menuList from "../../router/const";
 
 const { SubMenu } = Menu;
 
-function Sider() {
+function Sider(props) {
+  const { collapsed } = props
   const [openKeys, setOpenKeys] = useState(["article"])
   const [selectedKeys, setSelectedKeys] = useState({
     current: "article-a",
@@ -43,10 +44,10 @@ function Sider() {
         selectedKeys={[selectedKeys.current]}
         onClick={handleClick}
         onOpenChange={openChange}
-        style={{ width: 125, height: "100%" }}
+        style={{ width: collapsed ? 'auto' : 256 , height: "100%" }}
         defaultOpenKeys={["article"]}
         mode="inline"
-        inlineCollapsed
+        inlineCollapsed={collapsed}
       >
         {menuList.map((item) => (
           <SubMenu

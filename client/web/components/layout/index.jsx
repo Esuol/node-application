@@ -17,19 +17,29 @@ import "./index.less";
 class Layout extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      collapsed: false,
+    };
   }
 
+  handleCollapsed = () => {
+    this.setState((prev) => ({
+      collapsed: !prev.collapsed,
+    }));
+  };
+
   render() {
+    const { collapsed } = this.state;
     return (
       <Row className="layout">
         <Col>
           <div style={{ height: "100%" }}>
-            <Sidebar className="layout-sidebar" {...this.props} />
+            <Sidebar className="layout-sidebar" {...this.props} collapsed={collapsed} />
           </div>
         </Col>
         <Col>
-          <Header />
-          <Container>{this.props.children}</Container>
+          <Header handleCollapsed={this.handleCollapsed} collapsed={collapsed} />
+          <Container collapsed={collapsed}>{this.props.children}</Container>
         </Col>
       </Row>
     );
