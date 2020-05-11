@@ -43,19 +43,16 @@ function Sider() {
         selectedKeys={[selectedKeys.current]}
         onClick={handleClick}
         onOpenChange={openChange}
-        style={{ width: 256, height: "100%" }}
-        defaultOpenKeys={["sub1"]}
+        style={{ width: 125, height: "100%" }}
+        defaultOpenKeys={["article"]}
         mode="inline"
+        inlineCollapsed
       >
         {menuList.map((item) => (
           <SubMenu
             key={item.key}
-            title={(
-              <span>
-                <Icon type={item.title.icon} />
-                <span>{item.title.text}</span>
-              </span>
-          )}
+            title={item.title}
+            icon={item.icon}
           >
             {item.children &&
             item.children.map((route) => {
