@@ -2,9 +2,9 @@ import React from "react";
 import { MenuFoldOutlined, LogoutOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import { Avatar } from "antd";
 import "./index.less";
+import Prototypes from "prop-types";
 
 export default function Header(props) {
-  // eslint-disable-next-line react/prop-types
   const { handleCollapsed, collapsed } = props;
 
   return (
@@ -27,3 +27,8 @@ export default function Header(props) {
     </div>
   );
 }
+
+Header.propTypes = {
+  handleCollapsed: Prototypes.func.isRequired,
+  collapsed: Prototypes.bool.isRequired,
+};
