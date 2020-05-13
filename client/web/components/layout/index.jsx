@@ -1,9 +1,4 @@
 /* eslint-disable react/jsx-props-no-spreading */
-/* eslint-disable react/prop-types */
-/* eslint-disable react/destructuring-assignment */
-/* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable no-useless-constructor */
-/* eslint-disable react/prefer-stateless-function */
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -29,7 +24,7 @@ class Layout extends Component {
   };
 
   render() {
-    const { collapsed } = this.state;
+    const { collapsed, children } = this.state;
     return (
       <Row className="layout">
         <Col>
@@ -39,7 +34,7 @@ class Layout extends Component {
         </Col>
         <Col>
           <Header handleCollapsed={this.handleCollapsed} collapsed={collapsed} />
-          <Container collapsed={collapsed}>{this.props.children}</Container>
+          <Container collapsed={collapsed}>{children}</Container>
         </Col>
       </Row>
     );
