@@ -69,7 +69,7 @@ function Sider(props) {
     </>
   );
 }
-
+// prototype check
 Sider.propTypes = {
   collapsed: PropTypes.bool.isRequired,
 };
