@@ -24,7 +24,8 @@ class Layout extends Component {
   };
 
   render() {
-    const { collapsed, children } = this.state;
+    const { collapsed } = this.state;
+    const { children } = this.props;
     return (
       <Row className="layout">
         <Col>
