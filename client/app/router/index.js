@@ -12,5 +12,4 @@ module.exports = (router) => {
   router.get("/article-add", home.renderHtml);
   router.get("/favicon.ico", home.favicon);
   router.get("/test", home.test);
-  // router.get("*", home.renderHtml)
 };
