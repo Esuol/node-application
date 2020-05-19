@@ -13,6 +13,7 @@ const app = new Koa();
 
 const routerManagement = require("./app/router");
 const manifest = require("./public/manifest.json");
+const home = require("./app/controller/home");
 // reslove node环境不解析less文件
 require.extensions[".less"] = () => {};
 
@@ -53,7 +54,6 @@ function renderServer(ctx, next) {
     // 处理自定义参数
     defineParams = String(defineParams) === "[object Object]" ? defineParams : {};
     obj = Object.assign(obj, defineParams);
-    // console.log('objsects s', obj)
     await ctx.render("index", obj);
   };
 }
