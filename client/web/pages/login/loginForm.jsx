@@ -1,23 +1,24 @@
-import React from 'react'
-import { Form, Input, Button, Checkbox } from 'antd';
-import PropTypes from 'prop-types'
+/* eslint-disable react/jsx-props-no-spreading */
+import React from "react";
+import { Form, Input, Button, Checkbox } from "antd";
+import PropTypes from "prop-types";
 
 const layout = {
   labelCol: { span: 6 },
   wrapperCol: { span: 17 },
-}
+};
 
 const tailLayout = {
   wrapperCol: { offset: 4, span: 16 },
 };
 
 const LoginForm = ({ submitLogin }) => {
-  const onFinish = values => {
-    submitLogin(values)
+  const onFinish = (values) => {
+    submitLogin(values);
   };
 
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
+  const onFinishFailed = (errorInfo) => {
+    console.log("Failed:", errorInfo);
   };
 
   return (
@@ -28,19 +29,11 @@ const LoginForm = ({ submitLogin }) => {
       onFinish={onFinish}
       onFinishFailed={onFinishFailed}
     >
-      <Form.Item
-        label="用户名"
-        name="username"
-        rules={[{ required: true, message: '请输入用户名!' }]}
-      >
+      <Form.Item label="用户名" name="username" rules={[{ required: true, message: "请输入用户名!" }]}>
         <Input />
       </Form.Item>
 
-      <Form.Item
-        label="密码"
-        name="password"
-        rules={[{ required: true, message: '请输入密码!' }]}
-      >
+      <Form.Item label="密码" name="password" rules={[{ required: true, message: "请输入密码!" }]}>
         <Input.Password />
       </Form.Item>
 
@@ -55,10 +48,10 @@ const LoginForm = ({ submitLogin }) => {
       </Form.Item>
     </Form>
   );
-}
+};
 
 LoginForm.propTypes = {
-  submitLogin: PropTypes.func.isRequired
-}
+  submitLogin: PropTypes.func.isRequired,
+};
 
 export default LoginForm;

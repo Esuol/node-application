@@ -4,7 +4,7 @@
 import axios from 'axios';
 import QS from 'qs';
 import { message } from 'antd';
-import store from '../store/index'
+import store from '../web/store/index'
 
 // 环境的切换
 if (process.env.NODE_ENV === 'development') {
