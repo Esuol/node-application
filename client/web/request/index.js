@@ -7,12 +7,12 @@ import { message } from 'antd';
 import store from '../store/index'
 
 // 环境的切换
-if (process.env.NODE_ENV == 'development') {
+if (process.env.NODE_ENV === 'development') {
     axios.defaults.baseURL = '/api';
-} else if (process.env.NODE_ENV == 'debug') {
+} else if (process.env.NODE_ENV === 'debug') {
     axios.defaults.baseURL = '';
-} else if (process.env.NODE_ENV == 'production') {
-    axios.defaults.baseURL = 'http://api.123dailu.com/';
+} else if (process.env.NODE_ENV === 'production') {
+    axios.defaults.baseURL = '';
 }
 
 // 请求超时时间
