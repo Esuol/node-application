@@ -96,6 +96,6 @@ app.use(async (ctx, next) => {
 routerManagement(router);
 app.use(router.routes()).use(router.allowedMethods());
 
-app.listen(3003, () => {
-  console.log("服务器已启动，请访问http://127.0.0.1:3003");
+app.listen(3005, () => {
+  console.log("服务器已启动，请访问http://127.0.0.1:3005");
 });

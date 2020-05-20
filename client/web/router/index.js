@@ -16,7 +16,7 @@ function RenderRouter() {
     <Switch>
       { globalRoutes }
       <Layout>{menuList.map((item) => item.children.map((route) => <Route {...route} />))}</Layout>
-      {/* <Redirect to='/notFound' /> */}
+      <Redirect to='/notFound' />
     </Switch>
   );
 }
