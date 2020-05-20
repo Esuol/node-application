@@ -4,6 +4,10 @@
  */
 
 const home = require("../controller/home");
+const paths = ['/', '/login', '/article-add', '/notFound']
+const isCorePath = (path) => {
+  return paths.includes(path)
+}
 
 module.exports = (router) => {
   router.get("/notFound", home.renderHtml);
@@ -12,4 +16,5 @@ module.exports = (router) => {
   router.get("/article-add", home.renderHtml);
   router.get("/favicon.ico", home.favicon);
   router.get("/test", home.test);
+  router.get("*",  home.renderHtml)
 };
