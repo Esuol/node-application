@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const StatusRoute = (props) => {
   return (
@@ -15,6 +16,11 @@ const StatusRoute = (props) => {
       }}
     />
   );
+};
+
+StatusRoute.propTypes = {
+  children: PropTypes.node.isRequired,
+  code: PropTypes.number.isRequired,
 };
 
 export default StatusRoute;
