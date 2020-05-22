@@ -27,7 +27,7 @@ export default [
         exact: true,
         icon: <PlusOutlined />,
         component: Loadable({
-          loader: () => import("../pages/article/list"),
+          loader: () => import("../pages/article/create"),
           loading: () => <Loading />,
         }),
       },
