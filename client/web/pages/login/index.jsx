@@ -8,7 +8,7 @@ import "./index.less";
 
 export default function Login() {
   const submitLogin = (values) => {
-    console.log("values", values);
+    console.log(values);
     console.log(get);
   };
   return (
