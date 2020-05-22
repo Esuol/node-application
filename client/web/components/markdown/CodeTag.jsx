@@ -1,5 +1,5 @@
 import React from "react";
-import SyntaxHighlighter from "react-syntax-highlighter";
+import SyntaxHighlighter from "react-syntax-highlighter"; // 高亮代码
 import { github } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import PropTypes from "prop-types";
 
