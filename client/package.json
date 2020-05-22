@@ -25,6 +25,7 @@
   "dependencies": {
     "@ant-design/icons": "^4.1.0",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "ali-oss": "^6.8.0",
     "antd": "^4.2.0",
     "axios": "^0.19.2",
     "isomorphic-style-loader": "^5.1.0",
