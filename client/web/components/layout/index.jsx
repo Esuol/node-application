@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
+import PropType from "prop-types";
 import { Row, Col } from "antd";
 import Sidebar from "../sidebar";
 import Header from "../header";
@@ -48,6 +49,10 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators(CounterActions, dispatch);
+};
+
+Layout.propTypes = {
+  children: PropType.node.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Layout);
