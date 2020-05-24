@@ -1,13 +1,13 @@
 import React from "react";
 import Loadable from "react-loadable";
 import { AppstoreOutlined } from "@ant-design/icons";
-import NotFound from '../pages/notFound'
+import NotFound from "../pages/notFound";
 import Loading from "../components/jumpLoading/jumpLoading";
 
 export default [
   {
-    key: 'notFound',
-    path: '/notFound',
+    key: "notFound",
+    path: "/notFound",
     exact: true,
     component: Loadable({
       loader: () => import("../pages/notFound"),
