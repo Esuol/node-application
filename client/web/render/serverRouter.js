@@ -14,7 +14,7 @@ function ServerRender(req, initStore) {
           <Router />
         </StaticRouter>
       </Provider>
-    )
+    );
   };
 }
 
