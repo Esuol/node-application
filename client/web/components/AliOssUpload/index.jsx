@@ -1,11 +1,11 @@
 import React from "react";
-// import { Upload, message } from "antd";
+import { Upload, message } from "antd";
 import moment from "moment";
 import OSS from "ali-oss";
-// import { PlusOutlined, LoadingOutlined, InboxOutlined } from "@ant-design/icons";
+import { PlusOutlined, LoadingOutlined, InboxOutlined } from "@ant-design/icons";
 import { accessKeySecret, accessKeyId, bucket } from "./secret";
 
-// const { Dragger } = Upload;
+const { Dragger } = Upload;
 
 const client = new OSS({
   region: "oss-cn-hangzhou",
