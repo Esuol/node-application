@@ -1,3 +1,3 @@
-export const accessKeyId = "key";
-export const accessKeySecret = "secret";
-export const bucket = "name";
+export const accessKeyId = "your key";
+export const accessKeySecret = "your secret";
+export const bucket = "your name";
