@@ -48,6 +48,7 @@ Admin.init({
     type: Sequelize.DATE,
     allowNull: false,
     get() {
+      // moment 处理时间格式
       return moment(this.getDataValue("created_at")).format("YYYY-MM-DD");
     }
   }

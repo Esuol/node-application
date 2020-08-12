@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-
+// 定义数据库 参数
 const {
   dbName,
   host,
