@@ -49,7 +49,7 @@
     "typescript": "^3.7.5"
   },
   "devDependencies": {
-    "class-validator": "^0.11.0",
+    "class-validator": "^0.14.0",
     "controllers": "^0.0.2",
     "koa-router": "^8.0.8",
     "nodemon": "^2.0.2",
